@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Protected Website</title>
+    <script>
+        function validatePassword() {
+            var password = document.getElementById("password").value;
+            var correctPassword = "mypassword";  // Change this to your desired password
+
+            if (password === correctPassword) {
+                // Password is correct, allow access to the protected content
+                window.location.href = "index2.html";  // Redirect to the protected page
+                return false;  // Prevent form submission
+            } else {
+                // Password is incorrect, display an error message
+                document.getElementById("error").textContent = "Incorrect password!";
+                return false;  // Prevent form submission
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Password Protected Website</h1>
+    <form onsubmit="return validatePassword()">
+        <label for="password">Password:</label>
+        <input type="password" id="password" required><br>
+        <p id="error" style="color: red;"></p>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
